@@ -311,8 +311,11 @@
 
     // Memory Fuctions
     function memoryAdd() {
-        if (state != 9 && currentTextOnScreen != "0" && currentTextOnScreen != "-") {
-            memoryNumber += currentTextOnScreen;
+        if (state != 9 && currentTextOnScreen != 0 && currentTextOnScreen != "-") {
+            if (memoryNumber == 0)
+                memoryNumber = currentTextOnScreen;
+            else
+                memoryNumber = +memoryNumber + +currentTextOnScreen;
             if (memoryNumber.length > 15) {
                 error();
                 memoryNumber = 0;
